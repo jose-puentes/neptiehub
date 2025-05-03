@@ -1,6 +1,6 @@
 # Landing Page - Salamander Tech Hub
 
-![Salamander Logo Yellow](https://github.com/user-attachments/assets/97b4df8d-0a97-4b51-9116-00de8f18cc1e)
+<img width="359" alt="Salamander Logo Yellow" src="https://github.com/user-attachments/assets/f75b322a-7587-430f-b860-ae11d3217eb6" />
 
 🦎 **build. burn. evolve**
 
