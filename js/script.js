@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectSelect = document.getElementById('project-select');
     const ctaButton = document.querySelector('.cta-button');
     
+    // Clear any existing options first
+    nameSelect.innerHTML = '';
+    
     // Load names dynamically
     loadNamesFromManifest();
     
@@ -10,9 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             console.log('Starting to load manifest...');
             
-            // First, fetch the manifest file
+            // First, fetch the manifest file with cache busting
             const timestamp = new Date().getTime();
-            const manifestResponse = await fetch(`names/manifest.json?t=${timestamp}`);
+            console.log(`Fetching manifest with timestamp: ${timestamp}`);
+            
+            const manifestResponse = await fetch(`names/manifest.json?t=${timestamp}`, {
+                cache: 'no-cache',
+                headers: {
+                    'Cache-Control': 'no-cache, no-store, must-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                }
+            });
             const manifest = await manifestResponse.json();
             
             console.log('Manifest loaded:', manifest);
@@ -21,10 +33,24 @@ document.addEventListener('DOMContentLoaded', function() {
             // Load each name file listed in manifest
             for (let i = 0; i < manifest.files.length; i++) {
                 const fileName = manifest.files[i];
-                console.log(`Loading file ${i + 1}: ${fileName}`);
+                console.log(`\n===== Loading file ${i + 1}: ${fileName} =====`);
                 
                 try {
-                    const fileResponse = await fetch(`names/${fileName}?t=${timestamp}`);
+                    const fileResponse = await fetch(`names/${fileName}?t=${timestamp}`, {
+                        cache: 'no-cache',
+                        headers: {
+                            'Cache-Control': 'no-cache, no-store, must-revalidate',
+                            'Pragma': 'no-cache',
+                            'Expires': '0'
+                        }
+                    });
+                    
+                    console.log(`Response status for ${fileName}: ${fileResponse.status}`);
+                    
+                    if (!fileResponse.ok) {
+                        throw new Error(`HTTP error! status: ${fileResponse.status}`);
+                    }
+                    
                     const nameData = await fileResponse.json();
                     
                     console.log(`Successfully loaded ${fileName}:`, nameData);
@@ -38,11 +64,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log(`Added ${nameData.name} to dropdown`);
                     
                 } catch (error) {
-                    console.error(`Error loading ${fileName}:`, error);
+                    console.error(`ERROR with ${fileName}:`, error);
+                    console.error(`Error type: ${error.name}`);
+                    console.error(`Error message: ${error.message}`);
                 }
             }
             
-            console.log(`Total options added: ${nameSelect.children.length}`);
+            console.log(`\nTotal options added: ${nameSelect.children.length}`);
             
             // Add a default "Select name" option at the beginning
             if (nameSelect.children.length > 0) {
@@ -57,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
         } catch (error) {
             console.error('Error loading manifest:', error);
+            console.error('Full error details:', error.stack);
             
             // Fallback option if manifest fails to load
             const errorOption = document.createElement('option');
