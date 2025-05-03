@@ -8,15 +8,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     async function loadNamesFromManifest() {
         try {
+            console.log('Starting to load manifest...');
+            
             // First, fetch the manifest file
             const manifestResponse = await fetch('names/manifest.json');
             const manifest = await manifestResponse.json();
             
+            console.log('Manifest loaded:', manifest);
+            console.log('Files to load:', manifest.files.length);
+            
             // Load each name file listed in manifest
-            for (const fileName of manifest.files) {
+            for (let i = 0; i < manifest.files.length; i++) {
+                const fileName = manifest.files[i];
+                console.log(`Loading file ${i + 1}: ${fileName}`);
+                
                 try {
                     const fileResponse = await fetch(`names/${fileName}`);
                     const nameData = await fileResponse.json();
+                    
+                    console.log(`Successfully loaded ${fileName}:`, nameData);
                     
                     // Create option element
                     const option = document.createElement('option');
@@ -24,10 +34,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     option.textContent = nameData.name;
                     nameSelect.appendChild(option);
                     
+                    console.log(`Added ${nameData.name} to dropdown`);
+                    
                 } catch (error) {
                     console.error(`Error loading ${fileName}:`, error);
                 }
             }
+            
+            console.log(`Total options added: ${nameSelect.children.length}`);
             
             // Add a default "Select name" option at the beginning
             if (nameSelect.children.length > 0) {
@@ -37,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 defaultOption.disabled = true;
                 defaultOption.selected = true;
                 nameSelect.insertBefore(defaultOption, nameSelect.firstChild);
+                console.log('Default option added');
             }
             
         } catch (error) {
@@ -58,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Example: Navigate to about page with query parameters
         if (nameSelect.value && projectSelect.value) {
-            window.location.href = `/about/?name=${nameSelect.value}&project=${projectSelect.value}`;
+            window.location.href = `about/?name=${nameSelect.value}&project=${projectSelect.value}`;
         } else {
             alert('Please select both name and project');
         }
