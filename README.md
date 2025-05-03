@@ -1,5 +1,7 @@
 # Landing Page - Salamander Tech Hub
 
+![Salamander Logo Yellow](https://github.com/user-attachments/assets/97b4df8d-0a97-4b51-9116-00de8f18cc1e)
+
 🦎 **build. burn. evolve**
 
 A tech community that brings together learners to grow. Add your name to our directory!
