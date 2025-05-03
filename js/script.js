@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(`Loading file ${i + 1}: ${fileName}`);
                 
                 try {
-                    const fileResponse = await fetch(`names/${fileName}`);
+                    const fileResponse = await fetch(`names/${fileName}?t=${timestamp}`);
                     const nameData = await fileResponse.json();
                     
                     console.log(`Successfully loaded ${fileName}:`, nameData);
