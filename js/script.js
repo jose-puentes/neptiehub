@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Starting to load manifest...');
             
             // First, fetch the manifest file
-            const manifestResponse = await fetch('names/manifest.json');
+            const timestamp = new Date().getTime();
+            const manifestResponse = await fetch(`names/manifest.json?t=${timestamp}`);
             const manifest = await manifestResponse.json();
             
             console.log('Manifest loaded:', manifest);
