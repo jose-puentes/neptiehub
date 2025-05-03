@@ -2,12 +2,19 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Run when main is pushed
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
+  
+  # Also run when another workflow completes (our manifest updater)
+  workflow_run:
+    workflows: ["Update Name Manifest"]
+    types:
+      - completed
+  
   workflow_dispatch:
+
+# Rest of your workflow stays the same...
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
