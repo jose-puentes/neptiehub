@@ -21,19 +21,21 @@ jobs:
           echo "  \"files\": [" >> manifest.json
           
           # List all JSON files except manifest.json
-          files=$(ls *.json | grep -v manifest.json | sort)
+          files=$(ls *.json 2>/dev/null | grep -v manifest.json | sort)
           
           # Convert to comma-separated JSON array
-          first=true
-          for file in $files; do
-            if [ "$first" = true ]; then
-              echo "    \"$file\"" >> manifest.json
-              first=false
-            else
-              sed -i '$ s/$/,/' manifest.json
-              echo "    \"$file\"" >> manifest.json
-            fi
-          done
+          if [ -n "$files" ]; then
+            first=true
+            for file in $files; do
+              if [ "$first" = true ]; then
+                echo "    \"$file\"" >> manifest.json
+                first=false
+              else
+                sed -i '$ s/$/,/' manifest.json
+                echo "    \"$file\"" >> manifest.json
+              fi
+            done
+          fi
           
           echo "  ]" >> manifest.json
           echo "}" >> manifest.json
