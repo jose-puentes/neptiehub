@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -74,7 +75,7 @@ body {
     flex-direction: column;
     gap: 20px;
     align-items: center;
-    width: 300px;
+    width: 400px;
 }
 
 .control-group {
@@ -86,13 +87,13 @@ body {
 
 label {
     font-size: 14px;
-    width: 90px;
+    width: 100px;
     text-align: right;
 }
 
 .select-wrapper {
     position: relative;
-    width: 180px;
+    width: 250px;
     background-color: #000000;
     border-radius: 12px;
     overflow: hidden;
@@ -101,8 +102,8 @@ label {
 select {
     width: 100%;
     padding: 12px 20px;
-    background-color: #000000;
-    color: #FFED00;
+    background-color: #8CFF00;
+    color: #000000;
     border: none;
     appearance: none;
     cursor: pointer;
@@ -112,7 +113,7 @@ select {
 }
 
 .select-wrapper::after {
-    content: '▼';
+    content: '⬇️';
     position: absolute;
     right: 15px;
     top: 50%;
@@ -128,8 +129,8 @@ select::-ms-expand {
 }
 
 .cta-button {
-    background-color: #FFED00;
-    color: #000000;
+    background-color: #000000;
+    color: #FFED00;
     border: none;
     padding: 15px 50px;
     border-radius: 12px;
@@ -143,12 +144,12 @@ select::-ms-expand {
 
 .cta-button:hover {
     opacity: 0.9;
-    background-color:  #000000;
-    color: #FFED00;
+    background-color:  #FFED00;
+    color: #000000;
 }
 
 /* Responsive design */
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     .navbar {
         padding: 15px 20px;
     }
@@ -169,10 +170,12 @@ select::-ms-expand {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+        width: 280px;
+        text-align: center;
     }
     
     label {
         width: auto;
         text-align: left;
     }
-} */
+}
