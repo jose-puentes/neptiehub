@@ -1,0 +1,37 @@
+name: Update Name Manifest
+on:
+  push:
+    paths:
+      - 'names/**'
+      - '!names/manifest.json'
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Update manifest
+        run: |
+          cd names
+          # Find all JSON files except manifest.json
+          find . -name "*.json" -not -name "manifest.json" -printf "%f\n" | sort > temp.txt
+          
+          # Create JSON array
+          echo '{' > manifest.json
+          echo '  "files": [' >> manifest.json
+          sed 's/$/,/' temp.txt | sed '$ s/,$//' | sed 's/^/    "/' | sed 's/$/"/' >> manifest.json
+          echo '  ]' >> manifest.json
+          echo '}' >> manifest.json
+          
+          rm temp.txt
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add names/manifest.json
+          git commit -m "Auto-update name manifest" || echo "No changes"
+          git push
