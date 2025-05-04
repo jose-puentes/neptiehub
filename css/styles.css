@@ -153,6 +153,10 @@ select::-ms-expand {
     .navbar {
         padding: 15px 20px;
     }
+
+    .nav-links a {
+        font-size: 12px;
+    }
     
     .main-content {
         padding: 20px;
