@@ -1,10 +1,19 @@
 # Landing Page - Salamander Tech Hub
 
-<img width="359" alt="Salamander Logo Yellow" src="https://github.com/user-attachments/assets/f75b322a-7587-430f-b860-ae11d3217eb6" />
+<p align="center">
+build🚀. burn 🔥. evolve 🦎
+</p>
 
-🦎 **build. burn. evolve**
+<p align="center">
+<img width="640" alt="Salamander Tech Hub - Landing Page" src="https://github.com/user-attachments/assets/163ba945-d094-44b9-b3f3-56c8fd792b04" />
 
+</p>
+
+<p align="center">
 A tech community that brings together learners to grow. Add your name to our directory!
+</p>
+
+
 
 ## 🚀 Quick Start
 
