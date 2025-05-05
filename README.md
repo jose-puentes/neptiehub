@@ -23,7 +23,7 @@ A tech community that brings together learners to grow. Add your name to our dir
 2. **Clone your fork**
    ```bash
    git clone https://github.com/YOUR-USERNAME/landing-page.git
-   cd salamander
+   cd landing-page
    ```
 
 3. **Add your name**
