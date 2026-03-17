@@ -77,6 +77,18 @@ body {
     width: auto;
 }
 
+.neptie-wordmark {
+    font-weight: 700;
+    color: #ffed00;
+    font-size: 1.2rem;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.neptie-wordmark:hover {
+    color: #fff7a3;
+}
+
 .nav-links {
     display: flex;
     gap: 40px;

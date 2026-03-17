@@ -174,7 +174,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Open the GitHub URL for the selected project and username
         if (nameSelect.value && projectSelect.value) {
-            const githubUrl = `https://github.com/Salamander-Tech-Hub/${projectSelect.value}/tree/main/${nameSelect.value}`;
+            // Neptie monorepo layout: org/repo/project/tree/main/contributor
+            const githubUrl = `https://github.com/jose-puentes/neptiehub/tree/main/${projectSelect.value}/${nameSelect.value}`;
             window.open(githubUrl, '_blank');
         } else {
             alert('Please select both name and project');

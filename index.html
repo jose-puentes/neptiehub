@@ -3,62 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salamander Tech Hub</title>
+    <title>Neptie — Intelligent software for founders</title>
+    <meta
+      name="description"
+      content="Neptie is a boutique development studio. We design, build, and scale products that make an impact. Visit neptie.com."
+    />
+    <link rel="canonical" href="https://neptie.com/" />
+    <meta property="og:site_name" content="Neptie" />
+    <meta property="og:title" content="Neptie — Intelligent software for founders" />
+    <meta
+      property="og:description"
+      content="We craft intelligent software that feels like magic to your users. neptie.com"
+    />
+    <meta property="og:url" content="https://neptie.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="assets/images/logos/salamander-logo-yellow.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/neptie.css" />
   </head>
-  <body>
+  <body class="neptie-page dark-mode">
     <nav class="navbar">
-      <a href="index.html" class="logo">
-        <img src="assets/images/logos/salamander-logo-yellow.svg" alt="Salamander" />
-      </a>
-      <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+      <a href="index.html" class="logo neptie-logo-text">Neptie</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Menu">☰</button>
       <div class="nav-links" id="nav-links">
-        <a href="index.html" class="active">Home</a>
+        <a href="#services">Services</a>
+        <a href="#brands">Brands</a>
+        <a href="#process">Process</a>
         <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <span class="toggle-icon">🌙</span>
-          <span class="toggle-text">Light</span>
+        <a href="contact.html" class="neptie-nav-cta">Get in touch</a>
+        <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle theme">
+          <span class="toggle-icon">☀️</span>
+          <span class="toggle-text">Dark</span>
         </button>
       </div>
     </nav>
 
-    <main class="main-content">
-      <img
-        src="assets/images/logos/salamander-logo-yellow.svg"
-        alt="Salamander Tech Hub"
-        class="salamander-logo"
-      />
-
-      <h1 class="motto">Build 🚀. Burn 🔥. Evolve 🦎</h1>
-
-      <div class="controls">
-        <div class="control-group">
-          <label for="name-select">Select name:</label>
-          <div class="select-wrapper">
-            <select id="name-select"></select>
+    <header class="neptie-hero">
+      <div class="neptie-hero-inner">
+        <p class="neptie-badge">Software built for cutting-edge marketing</p>
+        <h1>
+          We craft intelligent software that feels like <span class="neptie-gradient">magic</span> to your
+          users.
+        </h1>
+        <p class="neptie-hero-lead">
+          A boutique development studio for founders who refuse to settle. We design, build, and scale
+          products that make an impact.
+        </p>
+        <div class="neptie-hero-ctas">
+          <a href="contact.html" class="neptie-btn-primary">Get in touch</a>
+          <a href="#brands" class="neptie-btn-secondary">View our brands</a>
+        </div>
+        <div class="neptie-tech-grid">
+          <div class="neptie-tech-card">
+            <strong>Next.js</strong>
+            <span>React framework for production</span>
+          </div>
+          <div class="neptie-tech-card">
+            <strong>Design</strong>
+            <span>Figma &amp; design systems</span>
+          </div>
+          <div class="neptie-tech-card">
+            <strong>AI-powered</strong>
+            <span>OpenAI &amp; LangChain</span>
           </div>
         </div>
-
-        <div class="control-group">
-          <label for="project-select">Select project:</label>
-          <div class="select-wrapper">
-            <select id="project-select">
-              <option value="hello-world">hello-world</option>
-            </select>
-          </div>
-        </div>
-
-        <button class="cta-button">Check out Salamander // 👓</button>
       </div>
-    </main>
+      <span class="neptie-scroll-hint" aria-hidden="true">↓</span>
+    </header>
+
+    <section id="services" class="neptie-section">
+      <h2>Services</h2>
+      <p>
+        From product strategy to launch, Neptie partners with teams who need thoughtful engineering and
+        design. We ship fast without cutting corners.
+      </p>
+    </section>
+
+    <section id="brands" class="neptie-section">
+      <h2>Brands</h2>
+      <p>
+        We work with ambitious brands and founders. See our <a href="projects.html">projects</a> or reach
+        out at <a href="https://neptie.com">neptie.com</a> to start a conversation.
+      </p>
+    </section>
+
+    <section id="process" class="neptie-section">
+      <h2>Process</h2>
+      <p>
+        Discover, design, build, and iterate — with clear communication at every step. Your roadmap stays
+        aligned with outcomes that matter.
+      </p>
+    </section>
+
+    <footer class="neptie-footer">
+      <p>
+        <strong>Neptie</strong> &middot;
+        <a href="https://neptie.com">neptie.com</a>
+        &middot;
+        <a href="directory.html">Builder directory</a>
+      </p>
+    </footer>
 
     <script src="js/script.js"></script>
   </body>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Builder directory — Neptie</title>
+    <meta name="description" content="Neptie builder directory. neptie.com" />
+    <link rel="canonical" href="https://neptie.com/directory.html" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/logos/salamander-logo-yellow.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="index.html" class="logo neptie-wordmark">Neptie</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Menu">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="directory.html" class="active">Directory</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle theme">
+          <span class="toggle-icon">🌙</span>
+          <span class="toggle-text">Light</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <img
+        src="assets/images/logos/salamander-logo-yellow.svg"
+        alt="Neptie"
+        class="salamander-logo"
+      />
+
+      <h1 class="motto">Build. Ship. Grow.</h1>
+      <p style="text-align: center; max-width: 520px; margin: -1rem auto 1.5rem; opacity: 0.85">
+        Add your name to the Neptie builder directory.
+        <a href="index.html" style="color: inherit">Back to neptie.com</a>
+      </p>
+
+      <div class="controls">
+        <div class="control-group">
+          <label for="name-select">Select name:</label>
+          <div class="select-wrapper">
+            <select id="name-select"></select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="project-select">Select project:</label>
+          <div class="select-wrapper">
+            <select id="project-select">
+              <option value="hello-world">hello-world</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" class="cta-button">Open on GitHub</button>
+      </div>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
